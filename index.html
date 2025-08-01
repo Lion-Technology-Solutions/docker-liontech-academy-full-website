@@ -7,11 +7,11 @@
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #e67e22;
-            --secondary-color: #2c3e50;
-            --accent-color: #3498db;
-            --light-color: #ecf0f1;
-            --dark-color: #34495e;
+            --primary-color: #FFD700; /* Yellow */
+            --secondary-color: #002366; /* Navy Blue */
+            --accent-color: #1E90FF; /* Dodger Blue */
+            --light-color: #FFFFFF; /* White */
+            --dark-color: #000080; /* Darker Navy */
             --success-color: #27ae60;
         }
         
@@ -46,17 +46,18 @@
         .btn {
             display: inline-block;
             background: var(--primary-color);
-            color: #fff;
+            color: var(--secondary-color);
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         .btn:hover {
-            background: #d35400;
+            background: #FFC000; /* Darker yellow */
             transform: translateY(-2px);
         }
         
@@ -85,7 +86,7 @@
         }
         
         .contact-info a {
-            color: rgb(147, 10, 10);
+            color: rgb(0, 0, 0);
             display: flex;
             align-items: center;
             gap: 5px;
@@ -93,6 +94,7 @@
         
         .contact-info i {
             font-size: 16px;
+            color: var(--primary-color);
         }
         
         header {
@@ -117,7 +119,7 @@
         }
         
         .logo img {
-            height: 50px;
+            height: 60px;
         }
         
         .logo-text h1 {
@@ -135,7 +137,7 @@
         }
         
         nav a {
-            color: var(--dark-color);
+            color: var(--secondary-color);
             font-weight: 600;
             padding: 5px 0;
             position: relative;
@@ -166,16 +168,16 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: var(--dark-color);
+            color: var(--secondary-color);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 35, 102, 0.8), rgba(0, 35, 102, 0.8)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
         }
         
@@ -256,7 +258,7 @@
         /* Programs Section */
         .programs {
             padding: 80px 0;
-            background-color: var(--light-color);
+            background-color: #f5f7fa;
         }
         
         .programs-grid {
@@ -272,10 +274,12 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary-color);
         }
         
         .program-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .program-card img {
@@ -319,11 +323,13 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
         }
         
         .branch-card:hover {
-            background: var(--primary-color);
+            background: var(--secondary-color);
             color: white;
+            transform: translateY(-5px);
         }
         
         .branch-card:hover h3,
@@ -354,7 +360,7 @@
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background-color: var(--light-color);
+            background-color: #f5f7fa;
         }
         
         .contact-container {
@@ -369,6 +375,7 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
         }
         
         .contact-info h3 {
@@ -415,21 +422,23 @@
         .social-links a:hover {
             background: var(--primary-color);
             transform: translateY(-3px);
+            color: var(--secondary-color);
         }
         
-        /* Registration Form (from provided styles) */
+        /* Registration Form */
         .liontech-registration-form {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-color);
         }
         
         .liontech-registration-form h2 {
-            color: #2c3e50;
+            color: var(--secondary-color);
             text-align: center;
             margin-bottom: 20px;
         }
@@ -444,7 +453,7 @@
         legend {
             padding: 0 10px;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--secondary-color);
         }
         
         .form-group {
@@ -455,6 +464,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
+            color: var(--secondary-color);
         }
         
         input[type="text"],
@@ -468,6 +478,17 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
         }
         
         .checkbox-group {
@@ -481,6 +502,7 @@
             align-items: center;
             font-weight: normal;
             margin-right: 15px;
+            color: #666;
         }
         
         .checkbox-group input {
@@ -488,18 +510,20 @@
         }
         
         .submit-btn {
-            background-color: #3498db;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
             padding: 12px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
             width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
         .submit-btn:hover {
-            background-color: #2980b9;
+            background-color: #FFC000;
         }
         
         .required-note {
@@ -516,6 +540,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.1);
         }
         
         #map {
@@ -542,6 +567,7 @@
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+            color: var(--primary-color);
         }
         
         .footer-col h3::after {
@@ -640,7 +666,7 @@
         <div class="container">
             <div class="contact-info">
                 <a href="tel:+1647-381-8836"><i class="fas fa-phone"></i> +1 647-381-8836</a>
-                <a href="mailto:info@liontechacademy.ca"><i class="fas fa-envelope"></i> liontechacademy@gmail.com</a>
+                <a href="mailto:info@liontechacademy.ca"><i class="fas fa-envelope"></i> info@liontechacademy.ca</a>
             </div>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -655,7 +681,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://via.placeholder.com/50x50" alt="LionTech Academy Logo">
+                <img src="https://raw.githubusercontent.com/Lion-Technology-Solutions/docker-liontech-academy-full-website/master/liontechacademylogo.jpg" alt="LionTech Academy Logo">
                 <div class="logo-text">
                     <h1>LionTech <span>Academy</span></h1>
                 </div>
@@ -766,14 +792,14 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Yaoundé, Cameroon</h3>
                     <p>Bastos, Yaoundé, Cameroon</p>
-                    <p>+647-381-8836</p>
+                    <p>+237 6XX XXX XXX</p>
                 </div>
                 
                 <div class="branch-card">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Lagos, Nigeria</h3>
                     <p>Victoria Island, Lagos, Nigeria</p>
-                    <p>+1647-381-8836</p>
+                    <p>+234 8XX XXX XXXX</p>
                 </div>
             </div>
         </div>
@@ -1134,8 +1160,8 @@
             document.getElementById('map').innerHTML = `
                 <div style="width:100%;height:100%;background:#f0f0f0;display:flex;justify-content:center;align-items:center;">
                     <div style="text-align:center;">
-                        <h3>Google Map Would Display Here</h3>
-                        <p>With your location and our Toronto campus marked</p>
+                        <h3 style="color: var(--secondary-color);">Google Map Would Display Here</h3>
+                        <p style="color: var(--secondary-color);">With your location and our Toronto campus marked</p>
                     </div>
                 </div>
             `;
