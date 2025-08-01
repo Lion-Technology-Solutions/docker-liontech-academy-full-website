@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LionTech Academy Canada - DevOps & Cloud Training</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #e67e22;
+            --secondary-color: #2c3e50;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: rgb(147, 10, 10);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact-info i {
+            font-size: 16px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        
+        .logo-text span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .program-card-content {
+            padding: 20px;
+        }
+        
+        .program-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .program-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        /* Branches Section */
+        .branches {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .branch-card {
+            background: var(--light-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .branch-card:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .branch-card:hover h3,
+        .branch-card:hover p {
+            color: white;
+        }
+        
+        .branch-card i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .branch-card:hover i {
+            color: white;
+        }
+        
+        .branch-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .branch-card p {
+            color: #666;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            font-size: 20px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Registration Form (from provided styles) */
+        .liontech-registration-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .liontech-registration-form h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+        
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+        
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .required-note {
+            font-size: 12px;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        /* Map Section */
+        .map-container {
+            height: 400px;
+            margin-top: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar with Contact Info -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+1647-381-8836"><i class="fas fa-phone"></i> +1 647-381-8836</a>
+                <a href="mailto:info@liontechacademy.ca"><i class="fas fa-envelope"></i> liontechacademy@gmail.com</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50" alt="LionTech Academy Logo">
+                <div class="logo-text">
+                    <h1>LionTech <span>Academy</span></h1>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#branches">Branches</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#register" class="btn">Register Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Empowering Future Tech Leaders</h2>
+            <p>LionTech Academy offers world-class DevOps and Cloud computing training programs to help you launch or advance your tech career.</p>
+            <a href="#register" class="btn">Enroll Today</a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About LionTech Academy</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Transforming Tech Education Since 2015</h3>
+                    <p>LionTech Academy is a premier technology training institution specializing in DevOps and Cloud computing education. With campuses across Canada and Africa, we provide hands-on, industry-relevant training to help students succeed in the rapidly evolving tech landscape.</p>
+                    <p>Our expert instructors bring real-world experience to the classroom, ensuring you gain practical skills that employers value. Whether you're just starting your tech journey or looking to upskill, LionTech Academy has the perfect program for you.</p>
+                    <p>At LionTech, we believe in learning by doing. Our curriculum emphasizes practical projects and real-world scenarios to prepare you for the challenges of today's tech industry.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="LionTech Academy Students">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="DevOps Program">
+                    <div class="program-card-content">
+                        <h3>DevOps Engineering</h3>
+                        <p>Master the tools and methodologies of modern software development and operations in this comprehensive program.</p>
+                        <a href="#register" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AWS Cloud Program">
+                    <div class="program-card-content">
+                        <h3>AWS Cloud Architect</h3>
+                        <p>Become an expert in Amazon Web Services and learn to design scalable, reliable cloud infrastructure.</p>
+                        <a href="#register" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Azure Program">
+                    <div class="program-card-content">
+                        <h3>Microsoft Azure Expert</h3>
+                        <p>Gain in-depth knowledge of Microsoft's cloud platform and prepare for Azure certification exams.</p>
+                        <a href="#register" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Branches Section -->
+    <section class="branches" id="branches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Global Branches</h2>
+            </div>
+            
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Toronto, Canada</h3>
+                    <p>1231 Ellemere Road, Toronto, ON, Canada</p>
+                    <p>+1 647-381-8836</p>
+                </div>
+                
+                <div class="branch-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Yaoundé, Cameroon</h3>
+                    <p>Bastos, Yaoundé, Cameroon</p>
+                    <p>+647-381-8836</p>
+                </div>
+                
+                <div class="branch-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Lagos, Nigeria</h3>
+                    <p>Victoria Island, Lagos, Nigeria</p>
+                    <p>+1647-381-8836</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>1231 Ellemere Road, Toronto, ON, Canada</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <p>+1 647-381-8836</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <p>info@liontechacademy.ca</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock"></i>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Registration Form -->
+                <div class="liontech-registration-form" id="register">
+                    <form action="https://formspree.io/f/xdkddqnr" method="POST" class="liontech-registration-form">
+                        <h2>LionTech DevOps & Cloud International Registration</h2>
+                        
+                        <!-- Personal Information Section -->
+                        <fieldset>
+                            <legend>Personal Information</legend>
+                            
+                            <div class="form-group">
+                                <label for="first-name">First Name:*</label>
+                                <input type="text" id="first-name" name="first_name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-name">Last Name:*</label>
+                                <input type="text" id="last-name" name="last_name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="dob">Date of Birth:*</label>
+                                <input type="date" id="dob" name="date_of_birth" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <select id="gender" name="gender">
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Contact Information Section -->
+                        <fieldset>
+                            <legend>Contact Information</legend>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address:*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number (with country code):*</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="country">Country:*</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="IN">India</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="JP">Japan</option>
+                                    <!-- Add more countries as needed -->
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <textarea id="address" name="address" rows="3"></textarea>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Professional Information Section -->
+                        <fieldset>
+                            <legend>Professional Information</legend>
+                            
+                            <div class="form-group">
+                                <label for="job-title">Current Job Title:</label>
+                                <input type="text" id="job-title" name="job_title">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization:</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="experience">Years of Experience:</label>
+                                <select id="experience" name="experience">
+                                    <option value="">Select</option>
+                                    <option value="0-1">0-1 years</option>
+                                    <option value="1-3">1-3 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="5+">5+ years</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Areas of Interest (Select all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" name="interest" value="devops"> DevOps</label>
+                                    <label><input type="checkbox" name="interest" value="cloud-aws"> AWS Cloud</label>
+                                    <label><input type="checkbox" name="interest" value="cloud-azure"> Azure Cloud</label>
+                                    <label><input type="checkbox" name="interest" value="cloud-gcp"> Google Cloud</label>
+                                    <label><input type="checkbox" name="interest" value="kubernetes"> Kubernetes</label>
+                                    <label><input type="checkbox" name="interest" value="cicd"> CI/CD Pipelines</label>
+                                    <label><input type="checkbox" name="interest" value="iac"> Infrastructure as Code</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Additional Information -->
+                        <fieldset>
+                            <legend>Additional Information</legend>
+                            
+                            <div class="form-group">
+                                <label for="how-heard">How did you hear about us?</label>
+                                <select id="how-heard" name="how_heard">
+                                    <option value="">Select</option>
+                                    <option value="search-engine">Search Engine</option>
+                                    <option value="social-media">Social Media</option>
+                                    <option value="friend-colleague">Friend/Colleague</option>
+                                    <option value="conference-event">Conference/Event</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="questions">Questions or Comments:</label>
+                                <textarea id="questions" name="questions" rows="4"></textarea>
+                            </div>
+                        </fieldset>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="submit-btn">Register Now</button>
+                            <p class="required-note">* indicates required field</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About LionTech</h3>
+                    <p>LionTech Academy is a leading provider of DevOps and Cloud computing training with campuses in Canada, Cameroon, and Nigeria.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#branches">Branches</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#register">Register</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">DevOps Engineering</a></li>
+                        <li><a href="#">AWS Cloud Architect</a></li>
+                        <li><a href="#">Microsoft Azure Expert</a></li>
+                        <li><a href="#">Google Cloud Professional</a></li>
+                        <li><a href="#">Kubernetes Certification</a></li>
+                        <li><a href="#">CI/CD Pipeline Specialist</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1231 Ellemere Road, Toronto, ON, Canada</p>
+                    <p><i class="fas fa-phone"></i> +1 647-381-8836</p>
+                    <p><i class="fas fa-envelope"></i> info@liontechacademy.ca</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 LionTech Academy Canada. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (mainMenu.classList.contains('active')) {
+                    mainMenu.classList.remove('active');
+                }
+            });
+        });
+        
+        // Geolocation and Map
+        function initMap() {
+            // Default to Toronto coordinates
+            const toronto = { lat: 43.7615, lng: -79.2883 };
+            
+            // Try to get user's location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        
+                        // Create map centered on user's location
+                        const map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 12,
+                            center: userLocation,
+                        });
+                        
+                        // Add marker for user's location
+                        new google.maps.Marker({
+                            position: userLocation,
+                            map: map,
+                            title: "Your Location",
+                            icon: {
+                                url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                            }
+                        });
+                        
+                        // Add marker for LionTech Toronto
+                        new google.maps.Marker({
+                            position: { lat: 43.7615, lng: -79.2883 },
+                            map: map,
+                            title: "LionTech Academy Toronto"
+                        });
+                    },
+                    () => {
+                        // If geolocation fails, use Toronto as default
+                        handleLocationError(true, toronto);
+                    }
+                );
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, toronto);
+            }
+        }
+        
+        function handleLocationError(browserHasGeolocation, pos) {
+            // Create map centered on default location (Toronto)
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: pos,
+            });
+            
+            // Add marker for LionTech Toronto
+            new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "LionTech Academy Toronto"
+            });
+            
+            // Display error message if geolocation failed
+            if (browserHasGeolocation) {
+                alert("Error: The Geolocation service failed. Showing Toronto location instead.");
+            } else {
+                alert("Error: Your browser doesn't support geolocation. Showing Toronto location instead.");
+            }
+        }
+        
+        // Load Google Maps API
+        function loadGoogleMaps() {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+        
+        // Load the map when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            // Note: You'll need to replace YOUR_API_KEY with an actual Google Maps API key
+            // loadGoogleMaps();
+            
+            // For demonstration, we'll just show a placeholder
+            document.getElementById('map').innerHTML = `
+                <div style="width:100%;height:100%;background:#f0f0f0;display:flex;justify-content:center;align-items:center;">
+                    <div style="text-align:center;">
+                        <h3>Google Map Would Display Here</h3>
+                        <p>With your location and our Toronto campus marked</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
